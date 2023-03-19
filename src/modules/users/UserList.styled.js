@@ -20,12 +20,13 @@ const Table = styled.table`
     font-size:20px
     `
     const Th = styled.th`
-    border:1px solid #A0A0A0;
+    border:1px solid white;
     text-align:left;
     padding:8px;
     font-size:20px;
-    background-color:#E8E8E8;
-    cursor:pointer
+    background-color:#a9a9a9;
+    cursor:pointer;
+    color:white
     `
     const TableContainer = styled.div`
     border:1px solid #A0A0A0;
@@ -77,4 +78,13 @@ const Table = styled.table`
     const Tbody = styled.tbody`
     `
 
-export {LoadingContainer, MainContainer, Table, Td, Th, TableContainer, Button, PaginationContainer, SearchInput, TotalRecordsContainer, HeaderContainer, Header, Tbody}
+    const Select = styled.select`
+    background-color:white;
+    border:${props => props.active === true ? '0.5px solid red' : '0.5px solid #A0A0A0'};
+    border-radius:6px;
+    &:focus{
+        outline:none;
+    };
+    font-size:15px
+    `
+export {LoadingContainer, MainContainer, Table, Td, Th, TableContainer, Button, PaginationContainer, SearchInput, TotalRecordsContainer, HeaderContainer, Header, Tbody, Select}

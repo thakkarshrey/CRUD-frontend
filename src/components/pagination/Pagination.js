@@ -4,16 +4,17 @@ function Pagination({currentPage, onPageChange, limit, total}){
     const pageCount = Math.ceil(total/limit)
     const pagesArr = range(1, pageCount)
     const indexOfPage = currentPage * limit
+    console.log(currentPage, pageCount)
     return (
         <>
         <ButtonContainer>
-        <Button onClick={()=>onPageChange(currentPage - 1)} disabled={indexOfPage === limit}><b>{`<`}</b> </Button>
+        <Button onClick={()=>onPageChange(currentPage - 1)} disabled={currentPage === 1}><b>{`<`}</b> </Button>
         {
             pagesArr?.map((page)=>{
                 return <Button key={page} onClick={()=>onPageChange(page)}><b>{page}</b> </Button>
             })
         }
-        <Button onClick={()=>onPageChange(currentPage + 1)} disabled={indexOfPage === total}><b>{`>`}</b></Button>
+        <Button onClick={()=>onPageChange(currentPage + 1)} disabled={currentPage === pageCount}><b>{`>`}</b></Button>
         </ButtonContainer>
         </>
     )

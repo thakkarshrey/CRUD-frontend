@@ -1,3 +1,5 @@
+ import AppApiConfig from "../assets/config/AppApiConfig";
+ 
  class UserSessionService {
     async setUser(userName,userEmail,token){
         const userNameKey = 'usrName';
@@ -69,6 +71,21 @@
         window.localStorage.removeItem( 'loggedInUserKey' );
         window.localStorage.removeItem( 'loggedInUserDetails' )
         // Cookies.remove( AppConfig.SESSION_IS_USER_LOGGED_IN );
+    }
+
+    compileSessionHeaderForAxiosCall(authenticatedKey){
+        var authToken;
+        if(authenticatedKey && authenticatedKey !=="" && authenticatedKey!==null && authenticatedKey!==undefined){
+            authToken = authenticatedKey
+        }
+        else{
+            authToken = this.getToken()
+        }
+        return {
+            headers:{
+                [AppApiConfig.API_TOKEN_KEY]:authToken
+            }
+        }
     }
 }
 

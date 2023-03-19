@@ -6,6 +6,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import UserSessionService from './common/UserSessionService';
 import Navbar from './components/navbar/Navbar';
 import AppRoutingConfig from './assets/config/AppRoutingConfig';
+import Sidebar from './components/sidebar/Sidebar';
 
 function App() {
   const [isAuthenticated,userAuthenticated] = useState(false)
@@ -46,6 +47,7 @@ function App() {
       userEmail,setUserEmail,
       authenticatedToken,setAuthenticatedToken
     }}>
+      {/* <Sidebar> */}
     <Navbar>
     <Suspense fallback>
     <Routes>
@@ -57,6 +59,7 @@ function App() {
     </Routes>
     </Suspense>
     </Navbar>
+    {/* </Sidebar> */}
     </AppContext.Provider>
     </>
   );
